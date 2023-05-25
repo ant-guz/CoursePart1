@@ -12,10 +12,10 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("------------------------------------");
             Console.WriteLine("----- Homework 2 of C# course ------");
-            Console.WriteLine("");
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("1. Print the sum of two numbers");
+            Console.WriteLine("-------------------------------");
             bool isTryAgain = true;
             
             do
@@ -49,8 +49,9 @@ namespace Lesson2
                     Console.WriteLine("Try again!");
                 }
             } while (isTryAgain);
-            Console.WriteLine("");
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("2. Print the result of dividing two numbers");
+            Console.WriteLine("-------------------------------");
             isTryAgain = true;
             do
             {
@@ -93,15 +94,17 @@ namespace Lesson2
                     Console.WriteLine("Entered numbers can't be a 0. Try again!");
                 }
             } while (isTryAgain);
-            Console.WriteLine("");
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("3. Print the result of the specified operations ");
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("Result of the operation (-1 + 4 * 6) = " + (-1 + 4 * 6));
             Console.WriteLine("Result of the operation ( 35+ 5 ) % 7 = "+ (35 + 5) % 7);
             Console.WriteLine("Result of the operation 14 + -4 * 6 / 11 = " + (14 + (-4) * 6 / 11));
             Console.WriteLine("Result of the operation 2 + 15 / 6 * 1 - 7 % 2 = " + (2 + 15 / 6 * 1 - 7 % 2));
 
-            Console.WriteLine("");
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("4. Swap two numbers");
+            Console.WriteLine("-------------------------------");
 
             isTryAgain = true;
             do
@@ -141,8 +144,9 @@ namespace Lesson2
                 }
                 
             } while (isTryAgain);
-            Console.WriteLine("");
-            Console.WriteLine("5. Print the output of multiplication of three numbers which will be entered by the user ");
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("5. Print the output of multiplication of three numbers which will be entered by the user.");
+            Console.WriteLine("-------------------------------");
 
             isTryAgain = true;
             do
@@ -192,8 +196,9 @@ namespace Lesson2
                 }
 
             } while (isTryAgain);
-
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("------> Method finished.");
+            Console.WriteLine("-------------------------------");
         }
 
 
