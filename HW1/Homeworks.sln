@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW6", "..\HW6\HW6.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW7", "..\HW7\HW7.csproj", "{0FA9A4F7-6525-4A35-A0A5-BD06D366EFC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW7Test", "..\HW7Test\HW7Test.csproj", "{334AE169-152D-425F-9529-45AACB89A7CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW7Tests", "..\HW7Tests\HW7Tests.csproj", "{334AE169-152D-425F-9529-45AACB89A7CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
