@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace HW7
 {
-    public class Student : Human
+    public class Student : UniversityStaff
     {
         private string _city = "Unknown";
         public string City { get => _city;  set => _city = value; }
 
-        private List<Course> courses;
-
-        public List<Course> Courses { get { return this.courses; } set { this.courses = value; } }
-
-        public Course[] CoursesAttended { get; set; }
         public Student() 
         {
             this.Name = "Unknown";
@@ -35,9 +30,9 @@ namespace HW7
 
         }
         public Student(string _name, string _lastName, int _age, string _city,
-            Course[] coursesAttended) : this(_name, _lastName, _age, _city)
+            List<Course> _coursesAttended) : this(_name, _lastName, _age, _city)
         {
-            this.CoursesAttended = coursesAttended;
+            this.Courses = _coursesAttended;
 
         }
 
@@ -52,11 +47,10 @@ namespace HW7
         {
             string result = $"Student name = {this.Name}, last name = {this.LastName}, " +
                 $"age = {this.Age}. ";
-            Course[] existedCourse = this.CoursesAttended;
-            if (existedCourse != null)
+            if (GetCoursesCount() > 0)
             {
                 result += "\n" + "List of the attended courses: ";
-                foreach (Course course in existedCourse)
+                foreach (Course course in Courses)
                 {
                     result += "\n" +course.CourseName;
                 }
@@ -65,47 +59,6 @@ namespace HW7
                 Console.WriteLine(result);
             Console.WriteLine(  );
 
-        }
-
-        public void AddCourse(Course newCourse)
-        {
-            Course[] existedCourse = this.CoursesAttended;
-            if (existedCourse != null)
-            {
-                Course[] newCourses = new Course[existedCourse.Length + 1];
-                for (int i = 0; i < existedCourse.Length; i++)
-                {
-                    newCourses[i] = existedCourse[i];
-                }
-                newCourses[newCourses.Length - 1] = newCourse;
-                this.CoursesAttended = newCourses;
-            }
-            else
-            {
-                Course[] newCourses = new Course[] { newCourse };
-                this.CoursesAttended = newCourses;
-            }
-        }
-        public void RemoveCourse(Course course)
-        {
-            Course[] existedCourse = this.CoursesAttended;
-            if (existedCourse != null)
-            {
-                Course[] newCourses = new Course[existedCourse.Length - 1];
-                for (int i = 0; i < existedCourse.Length; i++)
-                {
-                    for (int j = 0; j < newCourses.Length; j++) {
-                        if (!existedCourse[i].Equals(course)) {
-                            newCourses[j] = existedCourse[i];
-                        }
-                    
-                    }
-                }
-                this.CoursesAttended = newCourses;
-            }
-            else {
-                Console.WriteLine($"Course with name {course.CourseName} didn't find.");
-            }
         }
     }
 }

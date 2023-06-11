@@ -7,20 +7,15 @@ using System.Xml.Linq;
 
 namespace HW7
 {
-    public class Teacher : Human
+    public class Teacher : UniversityStaff
     {
         private string[] subjects;
 
         private List<Student> students;
 
-        private List<Course> courses;
-
         public List<Student> Students { get { return this.students; } set { this.students = value; } }  
 
         public string[] Subjects { get { return this.subjects; } set { this.subjects = value; } }
-
-
-        public List<Course> Courses { get { return this.courses; } set { this.courses = value; } }
 
         public Teacher()
         {

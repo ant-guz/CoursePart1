@@ -4,8 +4,6 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-
             Student alexStudent = new Student
             { 
                 Name = "Alex",
@@ -52,9 +50,9 @@
             for (int i = 0; i < existingStudents.Count; i++) {
                 Console.WriteLine($"Index = {i}, student = {existingStudents[i].Name}");
             }
-            int index1 = course1.Find(olesStudent);
+            int index1 = course1.GerStudentNumber(olesStudent);
             Console.WriteLine($"Index Olex is {index1}");
-            int index2 = course1.Find(yanaStudent);
+            int index2 = course1.GetStudentIndex(yanaStudent);
             Console.WriteLine($"Index Yana is {index2}");
 
             course1.AddStudent(yanaStudent);

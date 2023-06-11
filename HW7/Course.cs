@@ -1,102 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HW7
 {
     public class Course
     {
-        public string CourseName { get; set; }
-        public string TeacherName { get; set; }
-        public int CourseDuration { get; set; }
-        public int NumberOfStudents { get; set; }
+        // properties
+        private string courseName;
+        private string teacherName;
+        private int courseDuration;
 
-        //public Student[] Students { get; set; }
+        private List<Student> students = new List<Student>();
 
-        private List<Student> students;
+        // getters and setters
+        public string CourseName { get { return this.courseName; } set { this.courseName = value; } }
+        public string TeacherName { get { return this.teacherName; } set { this.teacherName = value; } }
+        public int CourseDuration { get { return this.courseDuration; } set { this.courseDuration = value; } }
 
         public List<Student> Students { get { return this.students; } set { this.students = value; } }
 
-        public void AddStudent(Student student) {
-           
-            if (Students != null && Students.Count != 0)
-            {
-                if (Students.Contains(student)) 
-                {
-                    Console.WriteLine($"The student {student.Name} already exist in the list.");
-                }
-                else
-                {
-                    Console.WriteLine($"Successfully add student {student.Name} to the list.");
-                    students.Add(student);
-                }
-            }
-            else 
-            {
-                Console.WriteLine($"Successfully add student {student.Name} to the list.");
-                Students.Add(student);
-            }
-        }
-
-        public void RemoveStudent(Student student) {
-            if (Students != null && Students.Count != 0)
-            {
-                if (Students.Contains(student))
-                {
-                    Console.WriteLine($"Successfully remove student {student.Name} from the list.");
-                    Students.Remove(student);
-                }
-                else 
-                {
-                    Console.WriteLine($"The student {student.Name} not on the list of students. Nothing to remove.");
-                }
-                
-            } 
-            else
-            {
-                Console.WriteLine($"Can't remove student {student.Name}. The list of students is empty.");
-            }
-        }
-
-        public int GetNumberElements(Student student) {
-            int result = -1;
-            if (Students != null && Students.Count != 0)
-            {
-                if (Students.Contains(student))
-                {
-                   
-                }
-                Students.Add(student);
-                Console.WriteLine($"The student {student.Name} not on the list of students. Nothing to return.");
-            }
-            else
-            {
-                Console.WriteLine($"Can't find student {student.Name}. The list of students is empty.");
-            }
-
-            return result;
-        }
-
-        public int Find(Student student)
-        {
-            return Students.IndexOf(student);
-            
-        }
-
-        public Course() 
+        //constructors
+        public Course()
         {
             this.CourseName = "Unknown";
             this.TeacherName = "Unknown";
         }
 
-        public Course(string courseName) : this() {
-            
+        public Course(string courseName) : this()
+        {
             this.CourseName = courseName;
         }
 
-        public Course(string courseName, string teacherName) : this(courseName) {
+        public Course(string courseName, string teacherName) : this(courseName)
+        {
             this.TeacherName = teacherName;
         }
 
@@ -104,6 +40,108 @@ namespace HW7
         {
             this.CourseDuration = courseDuration;
         }
+        // utils methods
+        public void AddStudent(Student student)
+        {
+            if (CheckStudentAtList(student))
+            {
+                Console.WriteLine($"The student {student.Name} already exist in the list.");
+            }
+            else
+            {
+                Console.WriteLine($"Successfully add student {student.Name} to the list.");
+                students.Add(student);
+            }
+        }
+
+        public void RemoveStudent(Student student)
+        {
+
+            if (CheckStudentAtList(student))
+            {
+                Console.WriteLine($"Successfully remove student {student.Name} from the list.");
+                Students.Remove(student);
+            }
+            else
+            {
+                Console.WriteLine($"The student {student.Name} not on the list of students. Nothing to remove.");
+            }
+
+        }
+
+        public bool CheckStudentAtList(Student student)
+        {
+            bool result = false;
+
+            if (Students.Count > 0)
+            {
+                if (Students.Contains(student))
+                {
+                    Console.WriteLine($"The student {student.Name} is at the list.");
+                    result = true;
+                }
+                else
+                {
+                    Console.WriteLine($"The student {student.Name} is not at the list.");
+                    result = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("List is empty.");
+                result = false;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Метод вертає порядковий номер студента у списку.
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns>Порядковий номер студента, або '-1', якщо студента немає у списку</returns>
+        public int GerStudentNumber(Student student)
+        {
+            int result = -1;
+            int index = GetStudentIndex(student);
+            if (index >= 0)
+            {
+                result = index++;
+                Console.WriteLine($"There are {result} students enrolled in the course. ");
+            }
+            Console.WriteLine($"There aren't students enrolled in the course. ");
+            return result;
+        }
+        /// <summary>
+        /// Метод вертає індекс номер студента у списку.
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns>Порядковий індекс студента, або '-1', якщо студента немає у списку</returns>
+
+        public int GetStudentIndex(Student student)
+        {
+            int index = Students.IndexOf(student);
+            if (index >= 0)
+            {
+                Console.WriteLine($"Index of the student {student.Name} is {index}.");
+            }
+            Console.WriteLine($"The student {student.Name} is not found.");
+            return Students.IndexOf(student);
+        }
+
+        public int GetStudentsCount()
+        {
+            int result = Students.Count;
+            if (result != 0)
+            {
+                Console.WriteLine($"There are {result} students enrolled in the course. ");
+            }
+            else
+            {
+                Console.WriteLine($"There aren't students enrolled in the course. ");
+            }
+            return result;
+        }
+
 
         public void Print()
 
@@ -119,31 +157,11 @@ namespace HW7
 
                     result += "\n" + student.Name;
                 }
-                    
+
             }
             Console.WriteLine(result);
             Console.WriteLine();
 
         }
-
-        //public void AddStudent(Student newStudent)
-        //{
-        //    Student[] existedStudents = this.Students;
-        //    if (existedStudents != null)
-        //    {
-        //        Student[] newStudents = new Student[existedStudents.Length + 1];
-        //        for (int i = 0; i < existedStudents.Length; i++)
-        //        {
-        //            newStudents[i] = existedStudents[i];
-        //        }
-        //        newStudents[newStudents.Length - 1] = newStudent;
-        //        this.Students = newStudents;
-        //    }
-        //    else
-        //    {
-        //        Student[] newCourses = new Student[] { newStudent };
-        //        this.Students = newCourses;
-        //    }
-        //}
     }
 }
