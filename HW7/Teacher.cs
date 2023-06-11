@@ -28,10 +28,17 @@ namespace HW7
             Name = _name;
 
         }
-        public Teacher(string _name, string _lastName, int _age, string[] _subjects) : this(_name)
+        public Teacher(string _name, string _lastName) : this(_name)
         {
             LastName = _lastName;
+        }
+        public Teacher(string _name, string _lastName, int _age) : this(_name, _lastName)
+        {
             Age = _age;
+        }
+
+        public Teacher(string _name, string _lastName, int _age, string[] _subjects) : this(_name, _lastName, _age)
+        {
             Subjects = _subjects;
 
         }

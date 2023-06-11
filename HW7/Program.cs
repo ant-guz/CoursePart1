@@ -32,7 +32,6 @@
                 Age = 23,
                 City = "Rovno"
             };
-           // Course EnglishIntermediaCourse = new Course("English_Intermedia", "Carol", 6);
             Course course1 = new Course
             { 
                 CourseName = "German_Intermedia",
@@ -66,6 +65,8 @@
             course1.RemoveStudent(alexStudent);
             course1.RemoveStudent(annaStudent);
             course1.RemoveStudent(annaStudent);
+
+            Teacher emptyTeacher = new Teacher();
         }
     }
 }
