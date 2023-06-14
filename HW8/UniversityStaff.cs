@@ -11,12 +11,20 @@ namespace HW8
         private string name;
         private string lastName;
         private int age;
+        private int gender;
+
         private List<Course> courses = new List<Course>();
 
         public string Name { get => name; set => name = value; }
 
         public string LastName { get => lastName; set => lastName = value; }
         public int Age { get => age; set => age = value; }
+
+        /// <summary>
+        /// 0 - woman
+        /// 1 - man
+        /// </summary>
+        public int Gender { get => gender; set => gender = value; }
 
         public List<Course> Courses { get { return this.courses; } set { this.courses = value; } }
 
@@ -60,15 +68,18 @@ namespace HW8
         public int GetCoursesCount()
         {
             int result = Courses.Count;
-            if (result != 0)
-            {
-                Console.WriteLine($"There are {result} courses. ");
-            }
-            else
-            {
-                Console.WriteLine($"There aren't courses. ");
-            }
+            //if (result != 0)
+            //{
+            //    Console.WriteLine($"There are {result} courses. ");
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"There aren't courses. ");
+            //}
             return result;
         }
+
+        public abstract void Print();
+      
     }
 }

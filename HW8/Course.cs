@@ -146,10 +146,9 @@ namespace HW8
         public void Print()
 
         {
-            string result = $"Course name = {this.CourseName}, teacher name = {this.TeacherName}," +
-                $" course duration = {this.CourseDuration}. ";
+            string result = $"Course name = {this.CourseName}, teacher name = {this.TeacherName}.";
             List<Student> existedStudents = this.Students;
-            if (existedStudents != null)
+            if (existedStudents.Count > 0)
             {
                 result += "\n" + "List of students: ";
                 foreach (Student student in existedStudents)
@@ -158,6 +157,9 @@ namespace HW8
                     result += "\n" + student.Name;
                 }
 
+            }
+            else {
+                result += "\n" + "There are no students enrolled in the course!";
             }
             Console.WriteLine(result);
             Console.WriteLine();

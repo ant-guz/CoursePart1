@@ -53,6 +53,29 @@ namespace HW8
             }
             Console.WriteLine(result);
         }
+
+        public override void Print()
+        {
+            string result = $"Teacher name = {this.Name}, last name = {this.LastName}, " +
+                $"age = {this.Age}. ";
+            if (GetCoursesCount() > 0)
+            {
+                string a = this.Gender == 0 ? "she" : "he";
+                result += "\n" + $"List of courses {a} is teaching: ";
+                foreach (Course course in Courses)
+                {
+                    result += "\n" + course.CourseName;
+                }
+            }
+            else
+            {
+                result += "\n" + "There aren't courses for teaching!";
+            }
+
+            Console.WriteLine(result);
+            Console.WriteLine();
+
+        }
     }
 
 
